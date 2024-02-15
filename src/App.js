@@ -1,20 +1,25 @@
-import react from "react";
-// import { Router, Route, BrowserRouter, Switch } from "react-router-dom";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Nav from "./components/Nav/Nav";
+import Home from "./components/Pages/Home";
+import "./App.css";
+import Products from "./components/Pages/Products";
+import Services from "./components/Pages/Services";
+import SignUp from "./components/Pages/SignUp";
 
-import Login from "./components/Login/Loginn.js";
-import Registration from "./components/Registration/Registrationn";
-import Home from "./components/Home/Home.js";
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <>
+      <Router>
+        <Nav />
         <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/products" element={<Products />} />
+          <Route exact path="/services" element={<Services />} />
+          <Route exact path="/sign-up" element={<SignUp />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </Router>
+    </>
   );
 }
 

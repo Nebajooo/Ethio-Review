@@ -1,91 +1,113 @@
-import react from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../Button/Button";
 import "./FooterStyle.css";
-import pack1 from "../image/package-1.jpg";
-import pack2 from "../image/package-2.jpg";
-import pack3 from "../image/package-3.jpg";
-import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
-    <div>
-      <footer>
-        <div class="top-section">
-          <section class="about-section">
-            <p class="logo">LOGO HERE</p>
-            <section>
-              <h3>About Us</h3>
-              <p>If you want to know about Vidyasheela visit vidyasheela.com</p>
-            </section>
-            <section>
-              <h3>Contact Us</h3>
-              <p>+91 0000 000 000</p>
-              <p>companyemail@email.com</p>
-            </section>
-          </section>
-          <section class="info-section">
-            <h3>Information</h3>
-            <ul>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
-              <li>
-                <a href="#">Events</a>
-              </li>
-              <li>
-                <a href="#">Gallery</a>
-              </li>
-            </ul>
-          </section>
-          <section class="links-section">
-            <h3>Links</h3>
-            <ul>
-              <li>
-                <a href="#">Services</a>
-              </li>
-              <li>
-                <a href="#">Support</a>
-              </li>
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">Terns & Condition</a>
-              </li>
-            </ul>
-          </section>
-          <section class="subscribe-section">
-            <h3>Subscribe Us</h3>
-            <form action="#">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Enter Your Email"
-              />
-              <input type="submit" value="Subscribe" />
-            </form>
-          </section>
+    <div className="footer-container">
+      <section className="footer-subscription">
+        <p className="footer-subscription-heading">
+          Join the Adventure newsletter to receive our best vacation deals
+        </p>
+        <p className="footer-subscription-text">
+          You can unsubscribe at any time.
+        </p>
+        <div className="input-areas">
+          <form>
+            <input
+              className="footer-input"
+              name="email"
+              type="email"
+              placeholder="Your Email"
+            />
+            <Button buttonStyle="btn--outline">Subscribe</Button>
+          </form>
         </div>
-        <hr />
-        <div class="social-icons">
-          <a href="facebook">
-            <i class="fab fa-facebook-square"></i>
-          </a>
-          <a href="twitter">
-            <i class="fab fa-twitter-square"></i>
-          </a>
-          <a href="instagram">
-            <i class="fab fa-instagram-square"></i>
-          </a>
-          <a href="youtube">
-            <i class="fab fa-youtube-square"></i>
-          </a>
+      </section>
+      <div class="footer-links">
+        <div className="footer-link-wrapper">
+          <div class="footer-link-items">
+            <h2>About Us</h2>
+            <Link to="/sign-up">How it works</Link>
+            <Link to="/">Testimonials</Link>
+            <Link to="/">Careers</Link>
+            <Link to="/">Investors</Link>
+            <Link to="/">Terms of Service</Link>
+          </div>
+          <div class="footer-link-items">
+            <h2>Contact Us</h2>
+            <Link to="/">Contact</Link>
+            <Link to="/">Support</Link>
+            <Link to="/">Destinations</Link>
+            <Link to="/">Sponsorships</Link>
+          </div>
         </div>
-        <span> CopyRight &copy; website.com 2022</span>
-      </footer>
+        <div className="footer-link-wrapper">
+          <div class="footer-link-items">
+            <h2>Videos</h2>
+            <Link to="/">Submit Video</Link>
+            <Link to="/">Ambassadors</Link>
+            <Link to="/">Agency</Link>
+            <Link to="/">Influencer</Link>
+          </div>
+          <div class="footer-link-items">
+            <h2>Social Media</h2>
+            <Link to="/">Instagram</Link>
+            <Link to="/">Facebook</Link>
+            <Link to="/">Youtube</Link>
+            <Link to="/">Twitter</Link>
+          </div>
+        </div>
+      </div>
+      <section class="social-media">
+        <div class="social-media-wrap">
+          <div class="footer-logo">
+            <Link to="/" className="social-logo">
+              EthioReview
+              <i class="fab fa-typo3" />
+            </Link>
+          </div>
+          <small class="website-rights">EthioReview © 2024</small>
+          <div class="social-icons">
+            <Link
+              class="social-icon-link facebook"
+              to="/"
+              target="_blank"
+              aria-label="Facebook">
+              <i class="fab fa-facebook-f" />
+            </Link>
+            <Link
+              class="social-icon-link instagram"
+              to="/"
+              target="_blank"
+              aria-label="Instagram">
+              <i class="fab fa-instagram" />
+            </Link>
+            <Link
+              class="social-icon-link youtube"
+              to="/"
+              target="_blank"
+              aria-label="Youtube">
+              <i class="fab fa-youtube" />
+            </Link>
+            <Link
+              class="social-icon-link twitter"
+              to="/"
+              target="_blank"
+              aria-label="Twitter">
+              <i class="fab fa-twitter" />
+            </Link>
+            <Link
+              class="social-icon-link twitter"
+              to="/"
+              target="_blank"
+              aria-label="LinkedIn">
+              <i class="fab fa-linkedin" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

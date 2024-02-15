@@ -1,48 +1,75 @@
-import react from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../Button/Button";
+
 import "./Nav.css";
-import { NavLink } from "react-router-dom";
 
 function Nav() {
-  return (
-    <div>
-      <div className="navbar">
-        <div className="icon">
-          <h2 className="logo">Ethio Review</h2>
-        </div>
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
 
-        <div className="menu">
-          <ul>
-            <li>
-              <NavLink to="/home">Home</NavLink>
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  useEffect(() => {
+    showButton();
+  }, []);
+
+  window.addEventListener("resize", showButton);
+
+  return (
+    <>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+            ER-TRVL <i class="fab fa-typo3" />
+          </Link>
+          <div className="menu-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"} />
+          </div>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                Home
+              </Link>
             </li>
-            <li>
-              <a href="#">ABOUT</a>
+            <li className="nav-item">
+              <Link
+                to="/services"
+                className="nav-links"
+                onClick={closeMobileMenu}>
+                Services
+              </Link>
             </li>
-            <li>
-              <a href="#">SERVICE</a>
+            <li className="nav-item">
+              <Link
+                to="/products"
+                className="nav-links"
+                onClick={closeMobileMenu}>
+                Products
+              </Link>
             </li>
-            <li>
-              <a href="#">DESIGN</a>
-            </li>
-            <li>
-              <a href="#">CONTACT</a>
+            <li className="nav-item">
+              <Link
+                to="/sign-up"
+                className="nav-links-mobile"
+                onClick={closeMobileMenu}>
+                Sign Up
+              </Link>
             </li>
           </ul>
+          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
         </div>
-
-        <div className="search">
-          <input
-            className="srch"
-            type="search"
-            name=""
-            placeholder="Type To text"
-          />
-          <a href="#">
-            <button className="btn">Search</button>
-          </a>
-        </div>
-      </div>
-    </div>
+      </nav>
+    </>
   );
 }
 
